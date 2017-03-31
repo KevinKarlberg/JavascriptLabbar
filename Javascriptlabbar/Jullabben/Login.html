@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Labb3(Jullabben)</title>
+    <meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+    <script src="app.js"></script>
+
+
+</head>
+<body ng-app="moviesApp">
+    <div ng-controller="homecontroller">
+        <label for="username">username:</label>
+        <input type="text" id="username" autofocus
+               placeholder="enter username" ng-model="Login" />
+        <label for="password">password:</label>
+        <input type="password" id="password"
+               placeholder="enter password" ng-model="Password" />
+        <label for="rememberme">Remember me:</label>
+        <input type="checkbox" id="rememberme" ng-model="RememberMe?" />
+        <button ng-click="Login()">Login</button>
+        <div>
+            {{loginStatus}}
+        </div>
+    </div>
+</body>
+</html>

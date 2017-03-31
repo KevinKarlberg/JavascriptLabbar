@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Labb7.2</title>
+    <meta charset="utf-8" />
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/products.js"></script>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 220px;
+        }
+
+            form input {
+                margin-top: 10px;
+                margin-bottom: 5px;
+                padding: 5px;
+            }
+
+        button {
+            background-color: lightsteelblue;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div ng-app="productsApp">
+        <div ng-controller="HomeController">
+            <section id="buttons">
+                <button ng-click="ShowProducts()">Products</button>
+                <button ng-click="ShowBooks()">Books</button>
+                <button ng-click="showPanel = ! showPanel">New Book</button>
+            </section>
+            <section ng-show="showPanel">
+                <form>
+                    <input type="text" name="name" ng-model="Name" placeholder="name" />
+
+                    <input type="text" name="category" ng-model="Category" placeholder="category" />
+
+                    <input type="number" name="price" ng-model="Price" placeholder="price" />
+
+                    <input type="text" name="articlenumber" ng-model="ArticleNumber" placeholder="articlenumber" />
+
+                    <input type="text" name="author" ng-model="Author" placeholder="author" />
+
+                    <input type="text" name="year" ng-model="Year" placeholder="year" />
+
+                    <button id="btn-add-book" ng-click="SaveBook()">submit book</button>
+                </form>
+            </section>
+            <section id="output">
+                <div ng-repeat="p in retrieved | orderBy:'Name'">
+
+                    <!-- shows whatever was returned into the
+                        retrieved array (all products or all books)-->
+                    <h4>{{p.Name}}</h4>
+                    {{p.Category}}
+                    {{p.Price}}
+                    {{p.ArticleNumber}}
+                    {{p.Author}}
+                    {{p.Year}}
+                    {{p.Length}}
+                    {{p.HasSplitscreen}}
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
